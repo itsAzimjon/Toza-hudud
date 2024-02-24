@@ -1,0 +1,2 @@
+[29-Dec-2023 12:16:03 Asia/Tashkent] PHP Warning:  require(/home/ecosfera/public_html/vendor/autoload.php): failed to open stream: No such file or directory in /home/ecosfera/public_html/artisan on line 18
+[29-Dec-2023 12:16:03 Asia/Tashkent] PHP Fatal error:  require(): Failed opening required '/home/ecosfera/public_html/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/ecosfera/public_html/artisan on line 18

@@ -102,8 +102,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="photo" class="form-control-label">Surat</label>
+                                    <span style="font-size:10px">hajm 2mb dan yuqori bo'lmasligi kerak</span>   
                                     <div class="input-group mb-3">
-                                        <input type="file" name="photo" class="form-control col-12" id="inputGroupFile02" accept="image/*" capture="camera">
+                                        <input type="file" name="photo" class="form-control col-12" id="inputGroupFile02" accept="image/*">
                                     </div>
                                 </div>
                             </div>

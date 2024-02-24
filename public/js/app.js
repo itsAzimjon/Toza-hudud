@@ -2095,17 +2095,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 
-window.Pusher = (pusher_js__WEBPACK_IMPORTED_MODULE_1___default());
-console.log('ho');
-window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  broadcaster: 'pusher',
-  key: /* unsupported import.meta.env.VITE_PUSHER_APP_KEY */ undefined.VITE_PUSHER_APP_KEY,
-  cluster: (_import$meta$env$VITE = /* unsupported import.meta.env.VITE_PUSHER_APP_CLUSTER */ undefined.VITE_PUSHER_APP_CLUSTER) !== null && _import$meta$env$VITE !== void 0 ? _import$meta$env$VITE : 'mt1',
-  wsHost: window.location.hostname,
-  wsPort: 6001,
-  forceTLS: false,
-  disableStatus: true
-});
+// window.Pusher = (pusher_js__WEBPACK_IMPORTED_MODULE_1___default());
+// console.log('ho');
+// window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
+//   broadcaster: 'pusher',
+//   key: /* unsupported import.meta.env.VITE_PUSHER_APP_KEY */ undefined.VITE_PUSHER_APP_KEY,
+//   cluster: (_import$meta$env$VITE = /* unsupported import.meta.env.VITE_PUSHER_APP_CLUSTER */ undefined.VITE_PUSHER_APP_CLUSTER) !== null && _import$meta$env$VITE !== void 0 ? _import$meta$env$VITE : 'mt1',
+//   wsHost: window.location.hostname,
+//   wsPort: 6001,
+//   forceTLS: false,
+//   disableStatus: true
+// });
 // import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');

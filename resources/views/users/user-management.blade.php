@@ -70,9 +70,9 @@
                                             <td>
                                                 <div class="avatar avatar-xl position-relative">
                                                     @if ($user->photo)
-                                                        <img src="{{ asset('storage/'.$user->photo) }}" alt="User's Photo" class="avatar avatar-sm me-3">
+                                                        <img src="{{ asset('storage/'.$user->photo) }}" alt="User's Photo" class="avatar avatar-sm object-fit-cover me-3">
                                                     @else
-                                                        <img src="{{ asset('assets/img/avatar.jpg') }}" alt="Default Avatar" class="avatar avatar-sm me-3">
+                                                        <img src="{{ asset('assets/img/avatar.jpg') }}" alt="Default Avatar" class="avatar avatar-sm object-fit-cover me-3">
                                                     @endif
                                                 </div>
                                             </td>
@@ -88,7 +88,7 @@
                                             <td class="text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ ($user->created_at->format('m/d/Y')) }}</span>
                                             </td>
-                                            <td class="d-flex justify-content-center align-items-center">
+                                            <td class="justify-content-center align-items-center">
                                                 <form class="col-1 mx-2 p-0" action="{{ route('user.destroy', $user->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

@@ -38,7 +38,8 @@ class OrderController extends Controller
             'area' => $request->area,
             'address' => $request->address,
             'weight' => $request->weight,
-            'price' => $request->price ?? 0
+            'price' => $request->price ?? 1,
+            'status' => $request->status ?? 3
         ]);
 
         OrderCreated::dispatch($order);

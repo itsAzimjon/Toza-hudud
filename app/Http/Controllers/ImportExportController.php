@@ -35,7 +35,6 @@ class ImportExportController extends Controller
             'type_id' => 'required|exists:types,id',
             'client_id' => 'required|exists:users,id',
             'sale' => 'required|numeric',
-            'status' => 'nullable|in:0,1',
         ]);
 
         $validator = Validator::make($request->all(), [
@@ -43,7 +42,6 @@ class ImportExportController extends Controller
             'type_id' => 'required|exists:types,id',
             'client_id' => 'required', 'exists:users,id',
             'sale' => 'required|numeric',
-            'status' => 'nullable|in:0,1',
         ]);
     
         if ($validator->fails()) {
@@ -78,7 +76,6 @@ class ImportExportController extends Controller
             'user_id' => 'required|exists:users,id',
             'type_id' => 'required|exists:types,id',
             'sale' => 'required|numeric',
-            'status' => 'nullable|in:0,1',
         ]);
 
         Base::create([
@@ -98,15 +95,14 @@ class ImportExportController extends Controller
             'type_id' => 'required|exists:types,id',
             'client_id' => 'required|exists:users,id',
             'sale' => 'required|numeric',
-            'status' => 'nullable|in:0,1',
         ]);
         
         Base::create([
             'user_id' => $request->user_id,
             'type_id' => $request->type_id,
-            'client_id' => $request->user_id,
+            'client_id' => $request->client_id,
             'import' => $request->sale,
-            'status' => $request->status ?? 0,
+            'status' => $request->status ?? 3,
         ]);
         
         return back()->with('success', 'Amaliyot muvofaqiatli yakunlandi');

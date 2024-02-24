@@ -22,7 +22,7 @@
                                         </a> 
                                     @endcannot
                                     @can('agent')
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#importFromClient" class="btn bg-gradient-primary btn-sm col-5 mx-2" type="button">+&nbsp;
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#importFromClient" class="btn bg-gradient-primary btn-sm col-5" type="button">+&nbsp;
                                             Qabul
                                         </a>
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#createPproduct" class="btn bg-gradient-secondary btn-sm col-5 mx-2" type="button">+&nbsp;
@@ -83,8 +83,11 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 20px">
+                                            ID</th>
+                                        <th
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Agentlar</th>
+                                            Foydalanuvchi</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Vazn &
@@ -123,6 +126,9 @@
                                         @endphp
 
                                         <tr>
+                                            <td>
+                                                <p class="text-xs font-weight-bold align-middle text-center m-0">{{ $base->id }}</p>
+                                            </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>

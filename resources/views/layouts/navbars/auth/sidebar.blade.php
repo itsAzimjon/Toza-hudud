@@ -26,7 +26,7 @@
               </g>
             </svg>
           </div>
-          <span class="nav-link-text ms-1">Dashboard</span>
+          <span class="nav-link-text ms-1">Statistika</span>
         </a>
       </li>
       <li class="nav-item">
@@ -171,15 +171,6 @@
             <span class="nav-link-text ms-1">Profile</span>
         </a>
       </li>
-      {{-- <li class="nav-link mt-3">
-        <a href="" class="btn btn-primary btn-md active px-5 text-white" role="button" aria-pressed="true">
-          <script>
-            document.write(new Date().getHours())
-            document.write(" : ")
-            document.write(new Date().getMinutes())
-          </script>   
-        </a>
-      </li> --}}
     </ul>
   </div>
 </aside>

@@ -50,6 +50,7 @@
     <script src="{{ asset('sw.js') }}"></script>
     @stack('dashboard')
     <script>
+        // Alert message
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
             var options = {
@@ -67,37 +68,63 @@
                 }, 500); // Adjust the duration of the fade-out animation
             }
         }, 7000);
-</script>
-   {{-- <script>
-    if ('Notification' in window) {
-        Notification.requestPermission().then(function (permission) {
-            if (permission === 'granted') {
-                // Notification permission granted; you can now show notifications.
-                // navigator.serviceWorker.ready.then((sw) => {
-                //     sw.pushManager.subscribe({
-                //         userVisibleOnly: true, // Use a comma, not a semicolon
-                //         applicationServerKey: "BC5zel9Joqe0Y2yVTJjDhiElIisJTVHq-_p4rxC3zd60gQSqXzra_7_m7B12axwI42tZIUXYGXhIJ-t5MolKjNY"
-                //     }).then((subscription) => {
-                    //         // subscription successful
-                    //         fetch("/api/push-notification", {
-                        //             method: "post",
-                        //             body: JSON.stringify(subscription)
-                        //         }).then(()); // Alert should be inside a function
-                //     });
-                // });
+        
+        // User and type search 
+        const typeSearchInput = document.getElementById('type_search');
+        const clientSearchInput = document.getElementById('client_search');
+    
+        const typeSelectElement = document.querySelector('select[name="type_id"]');
+        const clientSelectElement = document.querySelector('select[name="client_id"]');
+    
+        const typeOptions = Array.from(typeSelectElement.options);
+        const clientOptions = Array.from(clientSelectElement.options);
+    
+        function updateOptions(inputElement, selectElement, options) {
+            const searchValue = inputElement.value.toLowerCase();
+    
+            const filteredOptions = options.filter(option => option.textContent.toLowerCase().includes(searchValue));
+    
+            selectElement.innerHTML = '';
+    
+            filteredOptions.forEach(option => {
+                selectElement.appendChild(option.cloneNode(true));
+            });
+        }
+    
+        typeSearchInput.addEventListener('input', function() {
+            updateOptions(typeSearchInput, typeSelectElement, typeOptions);
+        });
+    
+        clientSearchInput.addEventListener('input', function() {
+            updateOptions(clientSearchInput, clientSelectElement, clientOptions);
+        });
+        
+        // Add price to weight
+        $(document).ready(function(){
+            updatePrice();
+    
+            $('#type_id, #sale').change(function(){
+                updatePrice();
+            });
+    
+            function updatePrice() {
+                var selectedType = $('#type_id').find(':selected');
+                var price = selectedType.data('price');
+                var weight = $('#sale').val();
+    
+                if ($.isNumeric(weight)) {
+                    var totalPrice = price * weight;
+    
+                    var formattedPrice = totalPrice.toLocaleString('en-US').replace(/,/g, ' ');
+    
+                    $('#price_display').text('Umumiy narx: ' + formattedPrice + ' so‘m');
+                } else {
+                    $('#price_display').text('Iltimos vazn va turni kiriting.');
+                }
             }
         });
-    }
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-        .then(function (registration) {
-            console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(function (error) {
-            console.error('Service Worker registration failed:', error);
-        });
-    }
-    </script> --}}
+    </script>
+
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{  asset('/assets/js/soft-ui-dashboard.min.js?v=1.0.3')}}"></script>

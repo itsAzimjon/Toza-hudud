@@ -17,7 +17,7 @@ class OrderResource extends JsonResource
     public function toArray($request)
     {
         $typeName = Type::find($this->type_id)->name ?? null;
-        $agentName = User::find($this->client_id)->name ?? null;
+        $agentName = User::find($this->user_id)->name ?? null;
 
         $resourceArray = [
             'id' => $this->id,
@@ -25,6 +25,9 @@ class OrderResource extends JsonResource
             'created_time' => $this->created_at->format('H:i'),
         ];
 
+        if ($this->price) {
+            $resourceArray['price'] = $this->price;
+        }
         if ($this->status) {
             $resourceArray['status'] = $this->status;
         }
@@ -32,7 +35,7 @@ class OrderResource extends JsonResource
             $resourceArray['kg'] = $this->weight;
         }
         if ($typeName) {
-            $resourceArray['type'] = $typeName;
+            $resourceArray['category'] = $typeName;
         }
         if ($agentName) {
             $resourceArray['agent_name'] = $agentName;
